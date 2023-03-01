@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import BasicFetch from "../api";
+import axios from "axios";
 
 const store = createStore({
   state: {
@@ -9,17 +10,17 @@ const store = createStore({
   },
   actions: {
     searchMeals({ commit }, keyword) {
-      BasicFetch.get(`search.php?s=${keyword}`).then(({ data }) => {
+      axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${keyword}`).then(({ data }) => {
         commit("setSearchMeals", data.meals);
       });
     },
     searchMealsByLetter({ commit }, letter) {
-      BasicFetch.get(`search.php?f=${letter}`).then(({ data }) => {
+      axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`).then(({ data }) => {
         commit("setSearchMealsByLetter", data.meals);
       });
     },
     searchMealsByIngredients({ commit }, ingredient) {
-      BasicFetch.get(`filter.php?i=${ingredient}`).then(({ data }) => {
+      axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`).then(({ data }) => {
         commit("setSearchMealsByIngredients", data.meals);
       });
     },
