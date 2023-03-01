@@ -12,11 +12,12 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import BasicFetch from "../api";
+import axios from "axios";
 
 const ingredients = ref([]);
 
 onMounted(() => {
-  BasicFetch.get("list.php?i=list").then(({ data }) => {
+  axios.get("https:/www.themealdb.com/api/json/v1/1/list.php?i=list").then(({ data }) => {
     ingredients.value = data.meals;
   });
 });

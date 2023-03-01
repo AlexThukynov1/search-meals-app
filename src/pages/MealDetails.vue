@@ -51,12 +51,13 @@ import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import BasicFetch from "../api";
 import YouTubeBtn from "../components/YouTubeBtn.vue";
+import axios from "axios";
 
 const route = useRoute();
 const meal = ref({});
 
 onMounted(() => {
-  BasicFetch.get(`lookup.php?i=${route.params.id}`).then(({ data }) => {
+  axios.get(`https:/www.themealdb.com/api/json/v1/1/lookup.php?i=${route.params.id}`).then(({ data }) => {
     meal.value = data.meals[0] || {};
   });
 });
