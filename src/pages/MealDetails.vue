@@ -57,7 +57,7 @@ const route = useRoute();
 const meal = ref({});
 
 onMounted(() => {
-  axios.get(`https:/www.themealdb.com/api/json/v1/1/lookup.php?i=${route.params.id}`).then(({ data }) => {
+  axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${route.params.id}`).then(({ data }) => {
     meal.value = data.meals[0] || {};
   });
 });

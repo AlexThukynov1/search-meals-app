@@ -15,7 +15,7 @@ const meals = ref([]);
 
 onMounted(async () => {
   for (let i = 0; i < 10; i++) {
-    axios.get(`https:/www.themealdb.com/api/json/v1/1/random.php`)
+    axios.get(`https://www.themealdb.com/api/json/v1/1/random.php`)
       .then(({ data }) => meals.value.push(data.meals[0]));
   }
 });

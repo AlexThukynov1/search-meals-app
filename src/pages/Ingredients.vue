@@ -17,7 +17,7 @@ import axios from "axios";
 const ingredients = ref([]);
 
 onMounted(() => {
-  axios.get("https:/www.themealdb.com/api/json/v1/1/list.php?i=list").then(({ data }) => {
+  axios.get("https://www.themealdb.com/api/json/v1/1/list.php?i=list").then(({ data }) => {
     ingredients.value = data.meals;
   });
 });
