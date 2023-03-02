@@ -7,7 +7,6 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
-import BasicFetch from "../api";
 import MealsUnit from "../components/MealsUnit.vue";
 import axios from "axios";
 

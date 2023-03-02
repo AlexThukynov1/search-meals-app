@@ -3,12 +3,17 @@
         <Meal :meals="meals" />
     </div>
     <div class="text-center" v-if="!meals.length">
-        The are no meals
     </div>
+    <Spinner v-if="loaded"/>
 </template>
 
 <script setup>
 import Meal from './Meal.vue';
+import Spinner from './Spinner.vue';
+import { computed } from 'vue';
+import store from '../store';
+
+const loaded = computed(() => store.state.isLoading);
 const {meals} = defineProps({
     meals: {
         required: true,
