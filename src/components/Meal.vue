@@ -14,7 +14,8 @@
     <div class="px-3">
       <h3 class="font-bold text-center">{{ meal.strMeal }}</h3>
       <p class="mb-3">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, ducimus?
+        <!-- {{ $filters.truncateWords(meal.strInstructions, 20) }} -->
+        {{ meal.strInstructions.split(" ").slice(0, 20).join(" ") }}
       </p>
       <div class="pb-4 flex justify-between items-center">
         <YouTubeBtn :href="meal.strYoutube">YouTube</YouTubeBtn>
